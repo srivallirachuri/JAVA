@@ -1,0 +1,260 @@
+Encapsulation:
+Encapsulation in Java is a fundamental OOP (object-oriented programming) principle that combines data and methods in a class. It allows implementation details to be hidden while exposing a public interface for interaction.
+The meaning of Encapsulation, is to make sure that "sensitive" data is hidden from users. To achieve this, you must:
+
+declare class variables/attributes as private
+provide public get and set methods to access and update the value of a private variable
+Get and Set:
+
+You learned from the previous chapter that private variables can only be accessed within the same class (an outside class has no access to it). However, it is possible to access them if we provide public get and set methods.
+
+The get method returns the variable value, and the set method sets the value.
+
+Syntax for both is that they start with either get or set, followed by the name of the variable, with the first letter in upper case:
+
+Why Encapsulation?
+Better control of class attributes and methods
+Class attributes can be made read-only (if you only use the get method), or write-only (if you only use the set method)
+Flexible: the programmer can change one part of the code without affecting other parts
+Increased security of data
+
+
+example program:
+
+public class Main {
+  // Added a name field...
+  private String name;
+
+  // Added a setName method to set the name
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  // Added a getName method to retrieve the name
+  public String getName() {
+    return this.name;
+  }
+
+  public static void main(String[] args) {
+    Main myObj = new Main();
+    myObj.setName("John"); // Now this line should work
+    // Changed to actually call the getName method
+    System.out.println(myObj.getName());
+  }
+}
+
+// Java program to demonstrate the Encapsulation.
+class Person {
+    // Encapsulating the name and age
+    // only approachable and used using
+    // methods defined
+    private String name;
+    private int age;
+
+    public String getName() { return name; }
+
+    public void setName(String name) { this.name = name; }
+
+    public int getAge() { return age; }
+
+    public void setAge(int age) { this.age = age; }
+}
+
+// Driver Class
+public class Main{
+    // main function
+    public static void main(String[] args)
+    {
+        // person object created
+        Person p = new Person();
+        p.setName("Srivalli");
+        p.setAge(19);
+        // Using methods to get the values from the
+        // variables
+        System.out.println("Name: " + p.getName());
+        System.out.println("Age: " + p.getAge());
+    }
+}
+
+
+
+Java Polymorphism
+
+Polymorphism means "many forms", and it occurs when we have many classes that are related to each other by inheritance.
+
+Like we specified in the previous chapter; Inheritance lets us inherit attributes and methods from another class. Polymorphism uses those methods to perform different tasks. This allows us to perform a single action in different ways.
+
+For example, think of a superclass called Animal that has a method called animalSound(). Subclasses of Animals could be Pigs, Cats, Dogs, Birds - And they also have their own implementation of an animal sound (the pig oinks, and the cat meows, etc.):
+
+example program:
+class Animal {
+  public void animalSound() {
+    System.out.println("The animal makes a sound");
+  }
+}
+
+class Pig extends Animal {
+  public void animalSound() {
+    System.out.println("The pig says: wee wee");
+  }
+}
+
+class Dog extends Animal {
+  public void animalSound() {
+    System.out.println("The dog says: bow wow");
+  }
+}
+
+class Main {
+  public static void main(String[] args) {
+    Animal myAnimal = new Animal();
+    Animal myPig = new Pig();
+    Animal myDog = new Dog();
+        
+    myAnimal.animalSound();
+    myPig.animalSound();
+    myDog.animalSound();
+  }
+}
+
+
+java Inheritance (Subclass and Superclass)
+
+
+ In Java, it is possible to inherit attributes and methods from one class to another. We group the "inheritance concept" into two categories:
+
+subclass (child) - the class that inherits from another class
+superclass (parent) - the class being inherited from
+To inherit from a class, use the extends keyword.
+
+'Why Do We Need Java Inheritance?
+
+Code Reusability: The code written in the Superclass is common to all subclasses. Child classes can directly use the parent class code.
+Method Overriding: Method Overriding is achievable only through Inheritance. It is one of the ways by which Java achieves Run Time Polymorphism.
+Abstraction: The concept of abstract where we do not have to provide all details, is achieved through inheritance. Abstraction only shows the functionality to the user.
+
+
+How to Use Inheritance in Java?
+The extends keyword is used for inheritance in Java. Using the extends keyword indicates you are derived from an existing class. In other words, “extends” refers to increased functionality.
+
+Syntax : 
+
+class DerivedClass extends BaseClass  
+{  
+   //methods and fields  
+}  
+
+What is the io package in Java?
+ The java.io Package
+The package java.io contains the classes that handle fundamental input and output operations in Java. The I/O classes can be grouped as follows: Classes for reading input from a stream of data. Classes for writing output to a stream of data. Classes that manipulate files on the local filesystem.
+
+
+
+
+// Java Program to illustrate Inheritance (concise)
+
+import java.io.*;
+
+// Base or Super Class
+class Employee {
+    int salary = 60000;
+}
+
+// Inherited or Sub Class
+class Engineer extends Employee {
+    int benefits = 10000;
+}
+
+// Driver Class
+class Gfg {
+    public static void main(String args[])
+    {
+        Engineer E1 = new Engineer();
+        System.out.println("Salary : " + E1.salary
+                           + "\nBenefits : " + E1.benefits);
+    }
+}
+
+SINGLE INHERITENCE:
+
+In single inheritance, a sub-class is derived from only one super class. It inherits the properties and behavior of a single-parent class. Sometimes, it is also known as simple inheritance. 
+
+class Person{
+    public void name()
+    {
+        System.out.println("Salary");
+    }
+}
+    class Age extends Person{
+        public void age(){
+            System.out.println(20);
+        }
+    }
+  public  class Main{
+        public static void main(String[] args){
+            Age data=new Age();
+            data.name();
+            data.age();
+        }
+    }
+
+
+ Multilevel Inheritance
+In Multilevel Inheritance, a derived class will be inheriting a base class, and as well as the derived class also acts as the base class for other classes
+
+class Person{
+    public void name()
+    {
+        System.out.println("Srivalli");
+    }
+}
+    class Age extends Person{
+        public void age(){
+            System.out.println("20");
+        }
+    }
+    class Study extends Age{
+        public void study(){
+            System.out.println("btech");
+    }
+    }
+  public  class Main{
+        public static void main(String[] args){
+            Study data=new Study();
+            data.name();
+            data.age();
+            data.study();
+        }
+    }
+
+. Hierarchical Inheritance
+
+In Hierarchical Inheritance, one class serves as a superclass (base class) for more than one subclass. 
+
+
+class Person{
+    public void name()
+    {
+        System.out.println("Srivalli");
+    }
+}
+    class Age extends Person{
+        public void age(){
+            System.out.println("20");
+        }
+    }
+    class Study extends Person{
+        public void study(){
+            System.out.println("btech");
+    }
+   
+    }
+  public  class Main{
+        public static void main(String[] args){
+            Study data=new Study();
+            data.name();
+            data.study();
+            Age a=new Age();
+            a.age();
+        }   
+          }
