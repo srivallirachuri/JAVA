@@ -1,0 +1,225 @@
+FLAG:to return boolean value
+
+
+public class Armstrong {
+
+    public static void main(String[] args) {
+
+        int number = 371, originalNumber, remainder, result = 0;
+
+        originalNumber = number;
+
+        while (originalNumber != 0)
+        {
+            remainder = originalNumber % 10;
+            result += Math.pow(remainder, 3);
+            originalNumber /= 10;
+        }
+
+        if(result == number)
+            System.out.println(number + " is an Armstrong number.");
+        else
+            System.out.println(number + " is not an Armstrong number.");
+    }
+}
+
+POSITIVE OR NEGATIVE 
+class Main{
+    public static void main(String [] args){
+        int n=-1;
+        if(n>0){
+            System.out.println("Given number is positive");
+        }
+         else if(n<0){
+            System.out.println("Given number is negative");
+        }
+         else{
+            System.out.println("Given number is zero");
+        }
+        
+    }
+}
+
+EVEN OR ODD
+
+import java.util.Scanner;
+public class Main{
+    public static void main(String [] args){
+        Scanner sc=new Scanner (System.in);
+        System.out.println("Enter your num:");
+        int num = sc.nextInt();
+        if(num % 2 == 0){
+            System.out.println("Even Number");
+        }
+        else
+        System.out.println("Odd Number");
+    }
+}
+
+
+FIBONACCI SERIES
+
+class Main{
+    public static void main(String [] args){
+        int num = 20;
+        int a = 0,b =1;
+        
+     // Here we are printing 0th and 1st terms
+       System.out.print (a + " , " + b + " , ");
+       int nextterm;
+       for(int i = 2;i<num;i++){
+           nextterm=a+b;
+           a=b;
+           b=nextterm;
+       System.out.print (nextterm+" , ");
+       }
+    }
+}
+
+
+POWER BASE
+
+class Main{
+    public static void main(String [] args){
+        int base=2;
+        int exp=3;
+        int res=1;
+        while(exp!=0){
+            res*=base;
+            exp--;
+        }
+        System.out.println("Result:"+res);
+    }
+}
+
+FACTORS OF A NUM:
+
+class Main{
+    public static void main(String [] args){
+        int num = 25;
+        System.out.println("Factors of "+num+" are");
+        for(int i = 1; i<=num; i++){
+            if(num%i==0){
+                System.out.print(i+" ");
+            }
+        }
+    }
+}
+
+PRIME FACTORS OF A NUM:
+
+import java.util.Scanner;
+
+public class Main {
+   public static void main(String args[]){
+      int number;
+      Scanner sc = new Scanner(System.in);
+      System.out.println("Enter a number :");
+      number = sc.nextInt();
+     
+      for(int i = 2; i< number; i++) {
+         while(number%i == 0) {
+            System.out.println(i+"");
+            number = number/i;
+         }
+      }
+      }
+   }
+
+
+STRONG NUMBER:
+
+import java.util.*;
+public class Main {
+   //main method
+   public static void main(String[] args) {
+
+      //declare an int variable and initialize a number as value
+      int inputNumber = 145;
+
+      //declare a variable for iteration
+      int i;
+
+      //declare variables for factorial value and the extracted digits
+      int factorial,digit;
+
+      //declare a variable to store the sum value
+      int sum = 0;
+
+      //transfer the input value to a temporary variable
+      int temp = inputNumber;
+
+      //start looping for calculating the result
+      while(temp != 0) {
+         i = 1;
+         factorial = 1;
+
+         //extracting the digit
+         digit = temp % 10;
+
+         //get the factorial of the digit
+         while(i <= digit) {
+            factorial = factorial * i;
+            i++;
+         }
+
+         //store the sum value
+         sum = sum + factorial;
+
+         //removing the digit one by one
+         temp = temp / 10;
+      }
+
+      //check condition
+      if(sum == inputNumber)
+         //if sum value is equal to input number
+         System.out.println(inputNumber + " is a strong number\n");
+      else
+         //if sum value is not equal to input number
+         System.out.println(inputNumber + " is not a strong number\n");
+   }   
+}
+
+
+PERFECT NUMBER:
+
+public class Main
+ {
+   public static void main (String[]args)
+   {
+
+     int n = 24, sum = 1;
+
+     for (int i = 1; i < n; i++)
+       {
+     	if (n % i == 0)
+ 	        sum = sum + i;
+       }
+
+     if (sum == n)
+       System.out.println (n + " Is a perfect number");
+     else
+       System.out.println (n + " Is not a perfect number");
+
+   }
+ }
+
+PERFECT SQUAREROOT:
+
+class Main{
+        static boolean isPerfectSquare(int x){
+            if(x>0){
+                int sr=(int)Math.sqrt(x);
+                return((sr * sr)==x);
+        }
+        return false;
+    }
+public static void main(String [] args){
+    int x=84;
+    
+		if (isPerfectSquare(x))
+			System.out.print("True");
+		else
+			System.out.print("False");
+}
+}
