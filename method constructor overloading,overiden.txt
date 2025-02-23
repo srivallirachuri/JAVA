@@ -1,0 +1,430 @@
+METHOD OVERLOADING:
+DIFFERENT NUMBER OF PARAMETERS:
+
+class Main{
+    public int sum(int x,int y){
+        int sum=0;
+        sum=x+y;
+       return sum;
+    }
+    public int sum(int x,int y,int z)
+    {
+        int sum=0;
+        sum=x+y+z;
+        return sum;
+        
+    }
+        public static void main(String [] args){
+            Main s=new Main();
+            System.out.println(s.sum(10,2));
+            System.out.println(s.sum(2,3,4));
+        }
+
+}
+
+
+Same Method Name: The overriding method in the subclass must have the same name as the method in the superclass that it is overriding.
+Same Parameters: The overriding method must have the same number and types of parameters as the method in the superclass. This ensures compatibility and consistency with the method signature defined in the superclass.
+IS-A Relationship (Inheritance): Method overriding requires an IS-A relationship between the subclass and the superclass. This means that the subclass must inherit from the superclass, either directly or indirectly, to override its methods.
+Same Return Type or Covariant Return Type: The return type of the overriding method can be the same as the return type of the overridden method in the superclass, or it can be a subtype of the return type in the superclass. This is known as the covariant return type, introduced in Java 5.
+Access Modifier Restrictions: The access modifier of the overriding method must be the same as or less restrictive than the access modifier of the overridden method in the superclass. Specifically, a method declared as public in the superclass can be overridden as public or protected but not as private. Similarly, a method declared as protected in the superclass can be overridden as protected or public but not as private. A method declared as default (package-private) in the superclass can be overridden with default, protected, or public, but not as private.
+No Final Methods: Methods declared as final in the superclass cannot be overridden in the subclass. This is because final methods cannot be modified or extended.
+No Static Methods: Static methods in Java are resolved at compile time and cannot be overridden. Instead, they are hidden i
+
+
+OVERRIDING IN JAVA
+
+DIFFERENT TYPE OF PARAMETERS:
+
+class Main{
+    public int sum(int x,int y){
+        int sum=0;
+        sum=x+y;
+       return sum;
+    }
+    public double sum(double x,double y,double z)
+    {
+        double sum=0;
+        sum=x+y+z;
+        return sum;
+        
+    }
+        public static void main(String [] args){
+            Main s=new Main();
+            System.out.println(s.sum(10,2));
+            System.out.println(s.sum(2.6,3.3,4.2));
+        }
+
+}
+
+class Main{
+    public void num(int a){
+        System.out.println("value of a:"+a);
+    }
+    public void name(String b){
+        System.out.println("name :"+b);
+    }
+    public static void main(String[] args){
+        Main a=new Main();
+        a.num(1);
+        a.name("Srivalli");
+    }
+}
+
+
+class HelperService {
+
+    private String formatNumber(int value) {
+        return String.format("%d", value);
+    }
+
+    private String formatNumber(double value) {
+        return String.format("%.3f", value);
+    }
+
+    private String formatNumber(String value) {
+        return String.format("%.2f", Double.parseDouble(value));
+    }
+
+    public static void main(String[] args) {
+        HelperService hs = new HelperService();
+        System.out.println(hs.formatNumber(500));
+        System.out.println(hs.formatNumber(89.9934));
+        System.out.println(hs.formatNumber("550"));
+    }
+}
+
+
+
+Constructor:
+
+
+class Main{
+    public String name;
+        Main(){
+            name="Srivalli";
+        }
+    public static void main(String [] args){
+        Main m=new Main();
+        System.out.println("Name is:"+m.name);
+    }
+}
+
+
+In the above example, we have created a constructor named Main().
+
+Inside the constructor, we are initializing the value of the name variable.
+
+Notice the statement creating an object of the Main class.
+Main obj = new Main();
+Here, when the object is created, the Main() constructor is called. And the value of the name variable is initialized.
+
+
+1. Java No-Arg Constructors
+Similar to methods, a Java constructor may or may not have any parameters (arguments).
+
+If a constructor does not accept any parameters, it is known as a no-argument constructor. For example,
+
+private Constructor() {
+   // body of the constructor
+}
+
+
+
+class Main{
+    int i;
+         public Main(){
+            i=2;
+              System.out.println("i is:"+obj.i);
+        }
+    public static void main(String [] args){
+        Main obj=new Main();
+    }
+}
+for above example we get error.
+
+the correct program is..
+
+class Main{
+    int i;
+         public Main(){
+            i=2;
+              
+        }
+    public static void main(String [] args){
+        Main obj=new Main();
+System.out.println("i is:"+obj.i);
+    }
+}
+
+
+class Company {
+  String name;
+
+  // public constructor
+  public Company() {
+    name = "Amazon";
+  }
+}
+
+class Main {
+  public static void main(String[] args) {
+
+    // object is created in another class
+    Company obj = new Company();
+    System.out.println("Company name = " + obj.name);
+  }
+}
+
+
+Java Parameterized Constructor 
+
+A Java constructor can also accept one or more parameters. Such constructors are known as parameterized constructors (constructors with parameters).
+
+
+class Main {
+
+  String languages;
+
+  // constructor accepting single value
+  Main(String lang) {
+    languages = lang;
+    System.out.println( " Programming Language:"+languages );
+  }
+
+  public static void main(String[] args) {
+
+    // call constructor by passing a single value
+    Main obj1 = new Main("Java");
+    Main obj2 = new Main("Python");
+    Main obj3 = new Main("C");
+  }
+}
+
+
+class Main{
+    String companies;
+    Main(String comp){
+     companies=comp;
+        System.out.println("companies:"+companies);
+    }
+    public static void main (String[] args) {
+        Main comp1=new Main("Amazon");
+         Main comp2=new Main("Infosys");
+          Main comp3=new Main("Google");
+        
+    }
+}
+
+
+DEFAULT CONSTRUCTOR
+
+
+If we do not create any constructor, the Java compiler automatically creates a no-arg constructor during the execution of the program.
+
+This constructor is called the default constructor.
+
+
+class Main {
+
+  int a;
+  boolean b;
+
+  public static void main(String[] args) {
+
+    // calls default constructor
+    Main obj = new Main();
+
+    System.out.println("Default Value:");
+    System.out.println("a = " + obj.a);
+    System.out.println("b = " + obj.b);
+  }
+}
+
+class Main {
+
+  String a;
+  char c;
+  float f;
+  double d;
+  byte b;
+
+  public static void main(String[] args) {
+
+    // calls default constructor
+    Main obj = new Main();
+
+    System.out.println("Default Value:");
+    System.out.println("a = " + obj.a);
+     System.out.println("c = " + obj.c);
+      System.out.println("f = " + obj.f);
+       System.out.println("d = " + obj.d);
+    System.out.println("b = " + obj.b);
+  }
+}
+
+output:
+
+a = null
+c = .
+f = 0.0
+d = 0.0
+b = 0
+
+Important Notes on Java Constructors
+Constructors are invoked implicitly when you instantiate objects.
+The two rules for creating a constructor are:
+1. The name of the constructor should be the same as the class.
+2. A Java constructor must not have a return type.
+If a class doesn't have a constructor, the Java compiler automatically creates a default constructor during run-time. The default constructor initializes instance variables with default values. For example, the int variable will be initialized to 0
+Constructor types:
+No-Arg Constructor - a constructor that does not accept any arguments
+Parameterized constructor - a constructor that accepts arguments
+Default Constructor - a constructor that is automatically created by the Java compiler if it is not explicitly defined.
+A constructor cannot be abstract or static or final.
+A constructor can be overloaded but can not be overridden.
+
+
+Similar to Java method overloading, we can also create two or more constructors with different parameters. This is called constructor overloading.
+
+Example: Java Constructor Overloading
+class Main {
+
+  String language;
+
+  // constructor with no parameter
+  Main() {
+    this.language = "Java";
+  }
+
+  // constructor with a single parameter
+  Main(String language) {
+    this.language = language;
+  }
+
+  public void getName() {
+    System.out.println("Programming Language: " + this.language);
+  }
+
+  public static void main(String[] args) {
+
+    // call constructor with no parameter
+    Main obj1 = new Main();
+
+    // call constructor with a single parameter
+    Main obj2 = new Main("Python");
+
+    obj1.getName();
+    obj2.getName();
+  }
+}
+
+
+OVERRIDING IN JAVA:
+
+What is Java Overriding?
+
+
+Java Method Overriding is a mechanism by which a subclass provides its own implementation of a method that is already provided by its parent class.
+To override a method in Java, the subclass must have the same method name, parameters, and return type as the method in the parent class.
+When a subclass overrides a method, it provides its own implementation of that method instead of the implementation provided by its parent class.
+
+Java Overriding Rules:
+
+When overriding a method in Java, there are several rules that must be followed:
+
+The name of the method in the subclass must exactly match the name of the method in the superclass.
+The parameters of the method in the subclass must match the parameters of the method in the superclass.
+The return type of the method in the subclass must be the same or a subtype of the return type of the method in the superclass.
+The access level of the method in the subclass must be the same or less restrictive than the access level of the method in the superclass.
+The exception thrown by the method in the subclass must be the same or a subclass of the exception thrown by the method in the superclass.
+The method in the subclass cannot be declared as static, because static methods are not overridden, they are hidden
+If any of these rules are violated, the code will not compile and will result in a compilation error.
+
+Super Keyword in Java Overriding :
+
+In Java, the super keyword is used to refer to the superclass of the current subclass. When overriding a method in a subclass, the super keyword can be used to call the overridden method in the superclass.
+
+Access Specifiers in Method Overriding :
+
+Access specifiers in Java control the visibility of classes, methods, and other class members. When overriding a method in Java, the access level of the overriding method must be the same or less restrictive than the access level of the overridden method in the superclass.
+Here are the access specifiers available in Java:
+public: Accessible from anywhere.
+protected: Accessible within the same package or by subclasses.
+default (no specifier): Accessible within the same package only.
+private: Accessible within the same class only.
+When overriding a method, the access level of the method in the subclass cannot be more restrictive than the access level of the method in the superclass.
+
+example:
+
+class Animal {
+    public void makeSound() {
+        System.out.println("Animal is making a sound");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    public void makeSound() {
+        System.out.println("Dog is barking");
+    }
+}
+
+class Cat extends Animal {
+    @Override
+    public void makeSound() {
+        System.out.println("Cat is meowing");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Animal animal = new Animal();
+        animal.makeSound(); // Output: Animal is making a sound
+        
+        Dog dog = new Dog();
+        dog.makeSound(); // Output: Dog is barking
+        
+        Cat cat = new Cat();
+        cat.makeSound(); // Output: Cat is meowing
+    }
+}
+
+Explanation:
+
+In this program, we have a parent class Animal that has a makeSound() method that prints "Animal is making a sound".
+The Dog and Cat classes both extend the Animal class and override the makeSound() method with their own implementations. When we create instances of Dog and Cat and call their makeSound() methods, we see that their respective implementations of the method are called instead of the one defined in the Animal class.
+
+
+Example 2 :Super Keyword in Java Overriding.
+
+class Animal {
+    public void makeSound() {
+        System.out.println("Animal is making a sound");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    public void makeSound() {
+        super.makeSound(); // Call the makeSound() method in the superclass
+        System.out.println("Dog is barking");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Dog dog = new Dog();
+        dog.makeSound();
+    }
+}
+Output
+
+Animal is making a sound
+Dog is barking
+
+Explanation:
+
+In this example, the Dog class overrides the makeSound() method from the Animal class.
+The super.makeSound() statement in the Dog class calls the makeSound() method in the Animal class, and then the Dog class adds its own implementation of the method. When we create an instance of the Dog class and call its makeSound() method, we see that both the Animal class's implementation and the Dog class's implementation of the method are called.
+The super keyword can also be used to access variables or methods in the superclass that have been hidden by variables or methods with the same name in the subclass.

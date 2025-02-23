@@ -1,0 +1,418 @@
+class MyThread1 extends Thread{
+    public void run(){
+        System.out.println("Thread1 is running");
+    }
+}
+class MyThread2 extends Thread{
+    public void run(){
+        System.out.println("Thread2 is running");
+    }
+}
+class Main{
+    public static void main(String [] args){
+        MyThread1 obj1=new MyThread1();
+        MyThread2 obj2=new MyThread2();
+        obj1.start();
+        obj2.start();
+    }
+}
+
+Output:
+Case 1:
+
+Thread1 is running
+Thread2 is running
+
+
+
+Here we have created our two thread classes for each thread. In the main method , we are simply creating objects of these thread classes where objects are now threads. So in main , we call thread using start() method over both the threads. Now start() method starts the thread and lookup for their run() method to run. Here both of our thread classes were having run()  methods, so both threads are put to run state from runnable by the scheduler, and output on the console is justified.
+
+Case 2:
+
+Here we have created our two thread classes for each thread. In the main method , we are simply creating objects of these thread classes where objects are now threads. So in main , we call thread using start() method over both the threads. Now start() method starts the thread and lookup for their run() method to run. Here both of our thread classes were having run()  methods, so both threads are put to run state from runnable by the scheduler, and output on the console is justified.
+
+Case 2:
+
+// Case 2
+// Java Program to illustrate Difference between Runnable
+// & Non-runnable Threads And Single Inheritance
+
+// Class 1
+// Helper thread Class extending main Thread Class
+class MyThread1 extends Thread {
+
+    // Method inside MyThread2
+    // run() method which is called as soon as thread is
+    // started
+    public void run() {
+
+        // Print statement when the thread is called
+        System.out.println("Thread 1 is running");
+    }
+}
+
+// Class 2
+// Main thread Class extending main Thread Class
+class MyThread2 extends Thread {
+
+    // Method
+    public void show() {
+
+        // Print statement when thread is called
+        System.out.println("Thread 2");
+    }
+}
+
+// Class 3
+// Main Class
+class GFG {
+
+    // Main method
+    public static void main(String[] args) {
+
+        // Creating a thread object of our thread class
+        MyThread1 obj1 = new MyThread1();
+        MyThread2 obj2 = new MyThread2();
+
+        // Getting the threads to the run state
+
+        // This thread will transcend from runnable to run
+        // as start() method will look for run() and execute
+        // it
+        obj1.start();
+
+        // This thread will now look for run() method which is absent
+        // Thread is simply created not runnable
+        obj2.start();
+    }
+}
+
+
+Thread 1 is running
+Here we have created our two thread classes for each thread. In the main method, we are simply creating objects of these thread classes where objects are now threads. So in main, we call thread using start() method over both the threads. Now start() method starts the thread and lookup their run() method to run. Here only class 1 is having the run() method to make the thread transcend from runnable to run state to execute whereas thread 2 is only created but not put to run state by the scheduler as its corresponding run() method was missing. Hence, only thread 1 is called rest thread 2 is created only and is in the runnable state later blocked by scheduler because the corresponding run() method was missing.
+
+
+class MyThread1 implements Runnable{
+    public void run(){
+        for(int i=0;i<5;i++){
+            System.out.println("Thread1");
+        
+        try {
+
+                // Making the thread pause for a certain
+                // time
+                // using sleep() method
+                Thread.sleep(1000);
+            }
+
+            // Catch block to handle the exceptions
+            catch (Exception e) {
+            }
+    }
+    
+    }
+}
+class MyThread2 implements Runnable{
+    public void run(){
+        for(int i=0;i<5;i++){
+            System.out.println("Thread2");
+        
+        try {
+
+                // Making the thread pause for a certain
+                // time
+                // using sleep() method
+                Thread.sleep(1000);
+            }
+
+            // Catch block to handle the exceptions
+            catch (Exception e) {
+            }
+    }
+    }
+}
+class Main{
+    public static void main(String [] args){
+        Runnable obj1=new MyThread1();
+        Runnable obj2=new MyThread2();
+        Thread t1 = new Thread(obj1);
+        Thread t2 = new Thread(obj2);
+
+        // Starting the execution of our own run() method
+        // in the classes above
+        t1.start();
+        t2.start();
+    }
+}
+
+
+// Example 1
+// Java Program to illustrate Output Without sleep() Method
+
+// Class 1
+// Helper Class 1
+class Shot extends Thread {
+
+    // Method 1
+    public void show() {
+
+        // Iterating to print more number of times
+        for (int i = 0; i < 5; i++) {
+
+            // Print statement whenever method
+            // of this class is called
+            System.out.println("Shot");
+
+        }
+    }
+}
+
+// Class 2
+// Helper Class 2
+class Miss extends Thread {
+
+    // Method 2
+    public void show() {
+
+        // Iterating to print more number of times
+        for (int i = 0; i < 5; i++) {
+
+            // Print statement whenever method
+            // of this class is called
+            System.out.println("Miss");
+
+        }
+    }
+
+}
+
+// Class 3
+// Main class
+public class GFG {
+
+    // Method 3
+    // Main method
+    public static void main(String[] args) {
+
+        // Creating objects in the main() method
+        // of class 1 and class 2
+        Shot obj1 = new Shot();
+        Miss obj2 = new Miss();
+
+        // Calling methods of the class 1 and class 2
+        obj1.show();
+        obj2.show();
+
+    }
+}
+
+// Example 2
+// Java Program to illustrate Output Using sleep() Method
+// in Serial Execution
+
+// Class 1
+// Helper Class 1
+class Shot extends Thread {
+
+    // Method 1
+    // public void show() {
+    public void show()
+    {
+
+        // Iterating to print more number of times
+        for (int i = 0; i < 5; i++) {
+
+            // Print statement
+            System.out.println("Shot");
+
+            // Making thread to sleep using sleep() method
+
+            // Try-catch block for exceptions
+            try {
+                Thread.sleep(1000);
+            }
+            catch (Exception e) {
+            }
+        }
+    }
+}
+
+// Class 2
+// Helper Class 2 Hello
+class Miss extends Thread {
+
+    // Method 2
+    // public void show() {
+    public void show()
+    {
+
+        // Iterating to print more number of times
+        for (int i = 0; i < 5; i++) {
+
+            // Print statement
+            System.out.println("Miss");
+
+            // Making thread to sleep using sleep() method
+
+            // Try-catch block for exceptions
+            try {
+                Thread.sleep(1000);
+            }
+            catch (Exception e) {
+            }
+        }
+    }
+}
+
+// Class 3
+// Main class
+public class GFG {
+
+    // Method 3
+    // Main method
+    public static void main(String[] args)
+    {
+
+        // Creating objects in the main() method
+        Shot obj1 = new Shot();
+        Miss obj2 = new Miss();
+
+        // Starting the thread objects
+        obj1.start();
+        obj2.start();
+
+        // Calling methods of class 1 and class 2
+        obj1.show();
+        obj2.show();
+    }
+}
+
+
+
+// Example 3
+// Java Program to illustrate Output Using sleep() Method
+// in Parallel Execution
+
+// Class 1
+// Helper Class 1
+class Shot extends Thread {
+
+    // Method 1
+    // public void show() {
+    public void run()
+    {
+
+        // Iterating to print more number of times
+        for (int i = 0; i < 5; i++) {
+
+            // Print statement
+            System.out.println("Shot");
+
+            // Making thread to sleep using sleep() method
+
+            // Try catch block for exceptions
+            try {
+                Thread.sleep(1000);
+            }
+            catch (Exception e) {
+            }
+        }
+    }
+}
+
+// Class 2
+// Helper Class 2 Hello
+class Miss extends Thread {
+
+    // Method 2
+    // public void show() {
+    public void run()
+    {
+
+        // Iterating to print more number of times
+        for (int i = 0; i < 5; i++) {
+
+            // Print statement
+            System.out.println("Miss");
+
+            // Making thread to sleep using sleep() method
+
+            // Try catch block for exceptions
+            try {
+                Thread.sleep(1000);
+            }
+            catch (Exception e) {
+            }
+        }
+    }
+}
+
+// Class 3
+// Main class
+public class GFG {
+
+    // Method 3
+    // Main method
+    public static void main(String[] args)
+    {
+
+        // Creating objects in the main() method
+        Shot obj1 = new Shot();
+        Miss obj2 = new Miss();
+
+        // Starting the thread objects
+        // using start() method
+
+        // start() method calls the run() method
+        // automatically
+        obj1.start();
+        obj2.start();
+    }
+}
+
+
+Priorities in Threads:
+
+
+Priorities in threads is a concept where each thread is having a priority which is represented by numbers ranging from 1 to 10.
+
+The default priority is set to 5 as excepted.
+Minimum priority is set to 1.
+Maximum priority is set to 10.
+Here 3 constants are defined in it namely as follows:
+
+public static int NORM_PRIORITY
+public static int MIN_PRIORITY
+public static int MAX_PRIORITY
+Let us discuss it with an example to get how internally the work is getting executed. Here we will be using the knowledge gathered above as follows:
+
+We will use currentThread() method to get the name of the current thread. User can also use setName() method if he/she wants to make names of thread as per choice for understanding purposes.
+getName() method will be used to get the name of the thread.
+
+EXAMPLE:
+
+class MyThread extends Thread{
+    public void run(){
+        // Printing the current running thread via getName()
+        // method using currentThread() method
+        System.out.println("Running Thread : "
+                           + currentThread().getName());
+        
+        // Print and display the priority of current thread
+        // via currentThread() using getPriority() method
+        System.out.println("Running Thread Priority : "
+                           + currentThread().getPriority());
+    }
+}
+class Main{
+    public static void main(String [] args){
+        MyThread t1=new MyThread();
+         MyThread t2=new MyThread();
+         t1.start();
+         t2.start();
+    }
+}
+
+
+SYNCHRONIZATION:
+Synchronization in Java is the process that allows only one thread at a particular time to complete a given task entirely. By default, the JVM gives control to all the threads present in the system to access the shared resource, due to which the system approaches race condition.

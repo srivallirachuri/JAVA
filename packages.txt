@@ -1,0 +1,175 @@
+Import in Java :
+
+Importing specific class​ :
+If you want to import a specific class from a package in your java program then you have to use this syntax.
+
+syntax:
+import packageName.className;
+
+Importing all the classes
+If you want to import all the class of a package then you will the ‘*’ symbol in your syntax.
+
+import java.util.*;
+Some of the predefined packages that we can import to our code are :
+Example :
+
+java.lang The language fundamentals are provided by this package.
+
+java.util This package contains classes and interfaces (APIs) for data structures, events, collection frameworks, and other utility classes like date.
+
+java.io Classes and interfaces for file operations as well as other input and output activities are provided by this package.
+
+java.math Multiprecision arithmetic classes and interfaces are available in this package.
+
+java.nio The Java Non-blocking I/O framework is provided by this package, which also includes classes and interfaces.
+
+java.net This package contains classes and interfaces for networking.
+
+java.security This package offers classes and interfaces for security framework components like key generation, encryption, and decryption.
+
+java.sql Classes and interfaces for accessing and manipulating data stored in databases and other data sources are provided by this package.
+
+java.awt This package contains classes and interfaces for creating
+
+EXAMPLE :
+
+import java.lang.Math;
+public class Main {
+
+	public static void main(String args[]) {
+		double a = 75.94;
+		double b = 92.23;
+		System.out.println(Math.max(a, b));
+	}
+}
+
+Packages in Java Language:
+
+The packages in Java Language is nothing more than directories that gathers related classes, interfaces,
+and sub-packages based on their functional relationships in java.
+There are many built-in packages for the Java language.
+
+
+Overview of Packages :
+
+Encapsulation is a key Java OOP principle that is implemented mostly through packages.
+A large project’s classes can be organised using Java packages, which can aid in the implementation of encapsulation.
+There exist two different kinds of packages :
+
+Build-in packages
+User-defined packages
+
+Creating User -Defined Packages :
+
+In java, we already have a number of pre-defined packages that contain a large number of classes and interfaces. These packages are known as Built-in packages and we can directly import them in our code.
+
+Some commonly used built-in packages are:
+
+java.io Data streams, serialisation, and the file system are all supported by this package for system input and output.
+java.lang contains classes that are essential to the design of the Java programming language.
+java.math Classes in this package perform arbitrary-precision integer arithmetic (BigInteger) and arbitrary-precision decimal arithmetic (BigDecimal).
+java.util The collections framework, some internationalisation support classes, and a few utility classes are included.
+  import java.util.*;
+  or
+  import java.util.Scanner;
+
+
+Creating User -Defined Packages :
+Java also allows you to make your own packages.These are referred to as user-defined packages.
+
+package demoPackage;
+    public class demoClass
+    {
+        public void getMessage(String m)
+        {
+            System.out.println(m);
+        }
+    }
+
+After creating our own package we can use its classes in our program.
+
+ public class Main 
+    {
+        public static void main(String args[]) 
+        { 
+            String message = "This is how User-Definded Packages work";
+            demoClass object = new demoClass();
+            object.getMessage(message);
+        }
+}
+
+Creating Packages in Java Command Line :
+javac -d PrepInsta java
+
+}
+Points to Remember:
+
+Either import the class or use the fully qualified class name in order to access code that is located outside the current package.
+Using packages while coding provides code reusability benefit.
+Packages allow us to uniquely identify a class.
+Access control features include protected classes, default classes, and private classes.
+They enable the hiding of classes, preventing other programmes from accessing classes intended for internal use only.
+You can better organise your project and find related classes by using packages.
+
+
+java.io Input Streams:
+
+It is used to read data from the user and is an abstract superclass of the java.io package. Alternatively, we can say that it helps in reading data from files. Using the new keyword, we can construct an object of the input stream class.
+
+Syntax:
+
+InputStream variable_name = new FileInputStream("Textfile_name");
+
+java.io Output Streams:
+
+java.io output streams writes the data to an output resource and is a superclass of the java.io package and putting the data into the files. By using the new keyword, we can construct an object of the output stream class.
+
+Syntax:
+
+FileOutputStream variable_name = new FileOutputStream("Textfile_name");
+
+java.io Error Streams:
+
+We can say Output streams and error streams are somehow identical. Some Compilers display errors in various aspects. The console receives the same output as output streams.
+We can take output of the errors with the help of try and catch block.
+
+Syntax:
+try{
+    // Block of code
+}
+catch excepted_error(Exception e){
+
+    // This will print the Exception on the screen
+    System.out.println(e);
+}
+
+Math :	The elementary exponential, logarithmic, square-root, and trigonometric functions, as well as other basic mathematical operations, are covered in the Math course.
+
+lang Package in Java:
+
+Some of the important Features of the java lang package are:
+
+Common data types used in Java programs that are used to store data including Integer, Character, Double, Float, Long, Number, String, and void are present in java lang package.
+Java lang package contains Compiler, Process, Process Builder, Runtime, Security Manager, System, Stack Trace Element, Thread, etc. are crucial for the safe and effective operation of a Java program.
+It also contains some of the common numerical operations of the Strict Math class.
+The classes that are essential to the creation of the Java programming language are contained in the Java.lang package.
+
+public class Main{
+    public static void main(String[] args){
+        // String class is called without importing any package
+        String name = "Lakshit";    
+        System.out.println(name);
+    }
+}
+Output:
+
+Lakshit
+
+util package:
+
+Example to Load the whole package and a class of util.
+// It loads the whole package in the program
+import java.util*;
+
+// It loads the Scanner class in the program
+import java.util.Scanner;    
